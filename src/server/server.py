@@ -82,7 +82,12 @@ def points():
 @bottle.get('/userpage')
 @authrequired
 def userpage():
-    return template('userpage.tpl')
+    data = {
+            'loggedin': {
+                'avatar': 'https://avatars.yandex.net/get-yapic/0/0-0/islands-200'
+            }
+        }
+    return template('userpage.tpl', data=data)
 
 
 @bottle.get('/events')
@@ -123,7 +128,12 @@ def audios(filepath):
 @authrequired
 def user_management(username):
     if request.method == 'GET':
-        return template('userpage.tpl')
+        data = {
+            'loggedin': {
+                'avatar': 'https://avatars.yandex.net/get-yapic/0/0-0/islands-200'
+            }
+        }
+        return template('userpage.tpl', data=data)
 
 
 # Don't forget to remove this before production deploy
