@@ -6,9 +6,8 @@
 
 .player {
     display: block;
-    position: relative;
+    /*position: relative;*/
     width: 100%;
-    height: 140px;
 }
 
 .overlay {
@@ -33,25 +32,27 @@
 .controls_play {
     padding: 5px 10px;
     background: #fff;
-    border: 1px #aaa solid;
     cursor: pointer;
 }
 
 .controls_play:hover {
-    border-color: #666;
+    background-color: #efefef;
 }
 
 .player_playing .controls_play {
-    background: #9DBAFF;
+    /*background: #9DBAFF;*/
+}
+.controls_play:focus {
+    box-shadow: none;
 }
 
 .progress {
     display: block;
     position: relative;
-    width: 90%;
-    height: 104px;
-    border: 1px #ccc solid;
-    margin: 10px 0;
+    width: 100%;
+    height: 20px;
+    border: 0px #ccc solid;
+    border-radius: 0;
 }
 
 .progress_loaded, .progress_current {
@@ -63,17 +64,19 @@
 }
 
 .progress_loaded {
-    background: #ccc;
+    background: #C4C4C4;
     z-index: 1;
 }
 
 .progress_current {
-    background: #535BC3;
+    background: #ED0909;
+    opacity: 0.75;
     z-index: 2;
 }
 
 .volume {
-    display: block;
+    display: none;
+    /*display: block;*/
     position: absolute;
     right: 0;
     width: 9%;
@@ -87,5 +90,17 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    background: #535BC3;
+    background: #ED0909;
+    opacity: 0.75;
+}
+
+.controls_play-stop {
+    display: none;
+}
+
+.player_playing .controls_play-stop {
+    display: inherit;
+}
+.player_playing .controls_play-play {
+    display: none;
 }
