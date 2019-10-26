@@ -42,14 +42,6 @@ def yandex(login):
     return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
 
-@bottle.post('/datahandler')
-def datahandler():
-    data = request.json
-    s['user'] = data
-    s.save()
-    return 'ok'
-
-
 @bottle.get('/yandexauth')
 def yandex():
     s = bottle.request.environ.get('beaker.session')
@@ -107,7 +99,7 @@ def login():
 def styles(filepath):
     return static_file(filepath, root="src/server/static/css")
 
-@bottle.get('/css/<filepath:re:.*\.js>')
+@bottle.get('/js/<filepath:re:.*\.js>')
 def scripts(filepath):
     return static_file(filepath, root="src/server/static/js")
 
@@ -126,16 +118,7 @@ def favicon():
 @authrequired
 def user_management(username):
     if request.method == 'GET':
-        data = {
-            'loggedin': {
-                'avatar': 'https://avatars.yandex.net/get-yapic/'+s.get('user', {}).get('default_avatar_id')+'/islands-200'
-            },
-            'owner': {
-                'avatar': 'https://avatars.yandex.net/get-yapic/'+s.get('user', {}).get('default_avatar_id')+'/islands-200',
-                'name': s.get('user', {}).get('real_name')
-            }
-        }
-        return template('userpage.tpl', data=data)
+        return template('userpage.tpl')
 
 
 # Don't forget to remove this before production deploy
