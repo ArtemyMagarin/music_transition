@@ -1,5 +1,5 @@
 import json 
-from bottle import Bottle, run, template, static_file, response, redirect
+from bottle import Bottle, run, template, static_file, response, request, redirect
 from yandex import YandexMusicParser
 import bottle as flask
 from bottle.ext import beaker
@@ -98,8 +98,6 @@ def styles(filepath):
 @flask.get('/favicon.ico')
 def styles():
     return static_file('favicon.ico', root="static/img")
-
-
 
 
 @flask.route('/user/<username>', methods=['POST', 'GET'])
