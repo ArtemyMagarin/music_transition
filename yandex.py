@@ -1,5 +1,5 @@
 import re
-from scraper.baseparser import BaseParser
+from baseparser import BaseParser
 
 
 class YandexMusicParser(BaseParser):
