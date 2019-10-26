@@ -130,11 +130,11 @@ def user_management(username):
     if request.method == 'GET':
         data = {
             'loggedin': {
-                'avatar': 'https://avatars.yandex.net/get-yapic/'+s['user']['default_avatar_id']+'/islands-200'
+                'avatar': 'https://avatars.yandex.net/get-yapic/'+s.get('user', {}).get('default_avatar_id')+'/islands-200'
             },
             'owner': {
-                'avatar': 'https://avatars.yandex.net/get-yapic/'+s['user']['default_avatar_id']+'/islands-200',
-                'name': s['user']['real_name']
+                'avatar': 'https://avatars.yandex.net/get-yapic/'+s.get('user', {}).get('default_avatar_id')+'/islands-200',
+                'name': s.get('user', {}).get('real_name')
             }
         }
         return template('userpage.tpl', data=data)
