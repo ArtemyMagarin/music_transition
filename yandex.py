@@ -52,5 +52,5 @@ if __name__ == '__main__':
     ymp = YandexMusicParser()
     print(ymp.fetch_data('magar.art'))
     print(ymp.fetch_data('v.stromtsova'))
-    print(ymp.fetch_data('revyakinpa'))
+    print(ymp.fetch_data('  '))
     print(ymp.fetch_data('sbazhmin'))
