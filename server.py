@@ -49,6 +49,11 @@ def userpage():
     return template('userpage.html')
 
 
+@app.get('/events')
+def userpage():
+    return template('events.html')
+
+
 @app.get('/css/<filepath:re:.*\.css>')
 def styles(filepath):
     return static_file(filepath, root="static/css")
