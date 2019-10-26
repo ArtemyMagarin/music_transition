@@ -4,6 +4,8 @@ from yandex import YandexMusicParser
 import bottle as flask
 from bottle.ext import beaker
 
+LOCAL = False
+
 session_opts = {
     'session.type': 'file',
     'session.cookie_expires': 300,
@@ -46,9 +48,14 @@ def yandex():
     return '''
         <script>
             var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
-            fetch('https://login.yandex.ru/info?oauth_token='+token).then(data => data.json()).then(data => window.location.replace('https://hardwaymusic.herokuapp.com/user/'+data.display_name))
+            fetch('https://login.yandex.ru/info?oauth_token='+token)
+            .then(data => data.json())
+            .then(data => {
+                window.localStorage.setItem('userData', JSON.stringify(data));
+                window.location.replace('%s' + data.display_name)
+            })
         </script>
-    '''
+    '''% ('https://hardwaymusic.herokuapp.com/user/' if not LOCAL else 'http://localhost:9999/user/')
 
 
 @flask.get('/')
@@ -107,6 +114,7 @@ def user_management(username):
         return template('userpage.html')
 
 
+# Don't forget to remove this before production deploy
 @flask.get('/lord_artemy_please_login_me')
 def sudo_login():
     s = flask.request.environ.get('beaker.session')
@@ -117,5 +125,6 @@ def sudo_login():
 
 
 if __name__ == '__main__':
+    LOCAL = True
     run(app, host='localhost', port=9999)
 
