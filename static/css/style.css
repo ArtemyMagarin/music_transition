@@ -251,7 +251,7 @@ a.article:hover {
 
 
 .sidebar {
-    /*height: 100vw;*/
+    height: 100vh;
     background-color: #ffffff;
 }
 #lists .card {
