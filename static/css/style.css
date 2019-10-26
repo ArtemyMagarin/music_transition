@@ -4,6 +4,7 @@
 
 body {
     background: #fafafa;
+    overflow-x: hidden;
 }
 
 p {
@@ -306,4 +307,37 @@ a.article:hover {
 
 .card-battle {
     padding: 0 !important;
+}
+
+
+/* ---------------------------------------------------
+    PLAYER
+----------------------------------------------------- */
+.player {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+}
+.player-info-song {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.player-info-song-name {
+    font-weight: 600;
+}
+
+.player-buttons-top {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.player-buttons-bottom {
+    display: flex;
+    justify-content: space-evenly;
+}
+.player-line {
+    background-color: #C4C4C4;
+    height: 20px;
+    margin: 0;
 }
