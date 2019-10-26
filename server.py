@@ -14,6 +14,7 @@ session_opts = {
 }
 
 app = beaker.middleware.SessionMiddleware(flask.app(), session_opts)
+flask.debug(True)
 
 def authrequired(func):
     def do_stuff(*args, **kwargs):
@@ -151,5 +152,5 @@ def sudo_login():
 
 if __name__ == '__main__':
     LOCAL = True
-    run(app, host='localhost', port=9999)
+    run(app, host='localhost', port=9999, reloader=True)
 
