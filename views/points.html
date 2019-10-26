@@ -23,7 +23,7 @@
                         <a href="/userpage"><img src="/img/ava.png" class="icon" style="border-radius: 100px;"/>My music</a>
                     </li>
                     <li class="nav-item">
-                        <a href="/points"><img src="/img/coin.png" class="icon"/>225 points</a>
+                        <a href="/points"><img src="/img/coin.png" class="icon"/>My points</a>
                     </li>
                     <li class="nav-item">
 
@@ -182,11 +182,24 @@
         </div>
     </div>
 <script type="text/javascript">
+    function setPoints() {
+        let points = localStorage.getItem('points_sum');
+        if (points) {
+            document.querySelector('#points').innerHTML = points;
+        }
+        else {
+            document.querySelector('#points').innerHTML = 0;
+        }
+    }
     function modifyPoints(points_num) {
         let current_points = document.querySelector('#points').innerHTML;
         localStorage.setItem('points_sum', parseInt(current_points)+parseInt(points_num));
-        document.querySelector('#points').innerHTML = localStorage.getItem('points_sum');
+        setPoints();
     }
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+        setPoints()
+    });
 
 </script>
 
