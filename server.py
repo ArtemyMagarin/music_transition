@@ -1,5 +1,5 @@
 import json 
-from bottle import Bottle, run, template, static_file, response
+from bottle import Bottle, run, template, static_file, response, redirect
 from yandex import YandexMusicParser
 import bottle as flask
 from bottle.ext import beaker
@@ -12,6 +12,15 @@ session_opts = {
 }
 
 app = beaker.middleware.SessionMiddleware(flask.app(), session_opts)
+
+def authrequired(func):
+    def do_stuff(filepath=None):
+        s = flask.request.environ.get('beaker.session')
+        if s.get('loggedin') != True:
+            return redirect('/login')
+        func(filepath)
+    
+    return do_stuff
 
 
 @flask.hook('after_request')
@@ -31,38 +40,49 @@ def yandex(login):
 
 @flask.get('/yandexauth')
 def yandex():
+    s = flask.request.environ.get('beaker.session')
+    s['loggedin'] = True
+    s.save()
     return '''
         <script>
             var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
-            fetch('https://login.yandex.ru/info?oauth_token='+token).then(data => data.json()).then(data => window.location.replace('https://hardwaymusic.herokuapp.com/yandex/'+data.display_name))
+            fetch('https://login.yandex.ru/info?oauth_token='+token).then(data => data.json()).then(data => window.location.replace('https://hardwaymusic.herokuapp.com/user/'+data.display_name))
         </script>
     '''
 
 
 @flask.get('/')
 @flask.get('/index')
+@authrequired
 def index():
     return template('index.html')
 
 @flask.get('/memories')
+@authrequired
 def memories():
     return template('memories.html')
 
 
 @flask.get('/points')
+@authrequired
 def points():
     return template('points.html')
 
 
 @flask.get('/userpage')
+@authrequired
 def userpage():
     return template('userpage.html')
 
 
 @flask.get('/events')
+@authrequired
 def events():
     return template('events.html')
 
+@flask.get('/login')
+def login():
+    return template('login.html')
 
 # static files
 @flask.get('/css/<filepath:re:.*\.css>')
@@ -75,10 +95,18 @@ def styles(filepath):
     return static_file(filepath, root="static/img")
 
 
-@flask.route('/user', methods=['POST', 'GET'])
-def user_management():
+@flask.get('/favicon.ico')
+def styles():
+    return static_file('favicon.ico', root="static/img")
+
+
+
+
+@flask.route('/user/<username>', methods=['POST', 'GET'])
+@authrequired
+def user_management(username):
     if request.method == 'GET':
-        return template('')
+        return template('userpage.html')
 
 
 
