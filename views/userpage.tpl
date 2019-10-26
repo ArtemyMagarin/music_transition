@@ -24,7 +24,7 @@
             <nav>
                 <ul class="nav flex-column list-unstyled components" id='menu'>
                     <li class="nav-item">
-                        <a href="/userpage"><img src="/img/ava.png" class="icon" style="border-radius: 100px;"/>My music</a>
+                        <a href="/userpage"><img src="{{data.loggedin.avatar}}" class="icon" style="border-radius: 100px;"/>My music</a>
                     </li>
                     <li class="nav-item">
                         <a href="/points"><img src="/img/coin.png" class="icon"/>225 points</a>
@@ -87,8 +87,8 @@
                     </h1>
                 </div>
                 <div class="row d-flex align-items-center mt-4">
-                    <img src="/img/ava4.png" class="float-left user-img mr-4">
-                    <span class="align-middle user-name">Valeria<br>Stromtsova</span>
+                    <img src="{{data.owner.avatar}}" class="float-left user-img mr-4">
+                    <span class="align-middle user-name">{{data.owner.name}}</span>
                 </div>
 
                 <div class="row mt-4">
@@ -167,6 +167,6 @@
         </div>
     </div>
 
-
+    <script src="/js/user.js"></script>
 </body>
 </html>

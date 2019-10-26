@@ -40,11 +40,19 @@ def yandex(login):
     return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
 
+@flask.post('/datahandler')
+def datahandler():
+    data = request.json
+    s['user'] = data
+    return 'ok'
+
+
 @flask.get('/yandexauth')
 def yandex():
     s = flask.request.environ.get('beaker.session')
     s['loggedin'] = True
     s.save()
+    url = 'https://hardwaymusic.herokuapp.com' if not LOCAL else 'http://localhost:9999'
     return '''
         <script>
             var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
@@ -52,10 +60,12 @@ def yandex():
             .then(data => data.json())
             .then(data => {
                 window.localStorage.setItem('userData', JSON.stringify(data));
-                window.location.replace('%s' + data.display_name)
+                fetch('%s/datahandler', { method: 'post', data: data })
+                    .then(data => data.text())
+                    .then(item => window.location.replace('%s/user/' + data.display_name))
             })
         </script>
-    '''% ('https://hardwaymusic.herokuapp.com/user/' if not LOCAL else 'http://localhost:9999/user/')
+    '''% (url, url)
 
 
 @flask.get('/')
@@ -79,7 +89,7 @@ def points():
 @flask.get('/userpage')
 @authrequired
 def userpage():
-    return template('userpage.html')
+    return template('userpage.tpl')
 
 
 @flask.get('/events')
@@ -96,6 +106,10 @@ def login():
 def styles(filepath):
     return static_file(filepath, root="static/css")
 
+@flask.get('/css/<filepath:re:.*\.js>')
+def scripts(filepath):
+    return static_file(filepath, root="static/js")
+
 
 @flask.get('/img/<filepath:path>')
 def styles(filepath):
@@ -110,8 +124,18 @@ def styles():
 @flask.route('/user/<username>', methods=['POST', 'GET'])
 @authrequired
 def user_management(username):
+    s = flask.request.environ.get('beaker.session')
     if request.method == 'GET':
-        return template('userpage.html')
+        data = {
+            'loggedin': {
+                'avatar': 'https://avatars.yandex.net/get-yapic/'+s['user']['default_avatar_id']+'/islands-200'
+            },
+            'owner': {
+                'avatar': 'https://avatars.yandex.net/get-yapic/'+s['user']['default_avatar_id']+'/islands-200',
+                'name': s['user']['real_name']
+            }
+        }
+        return template('userpage.tpl', data=data)
 
 
 # Don't forget to remove this before production deploy
