@@ -14,11 +14,11 @@ session_opts = {
 app = beaker.middleware.SessionMiddleware(flask.app(), session_opts)
 
 def authrequired(func):
-    def do_stuff(filepath=None):
+    def do_stuff(*args, **kwargs):
         s = flask.request.environ.get('beaker.session')
         if s.get('loggedin') != True:
             return redirect('/login')
-        func(filepath)
+        func(*args, **kwargs)
     
     return do_stuff
 
