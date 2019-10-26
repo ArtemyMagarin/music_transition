@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/player.css"/>
 </head>
 <body>
 
@@ -265,22 +266,22 @@
             localStorage.setItem('voted', side);
         }
 
-        function createPlayer() {
-            var player = new ya.music.Audio();
-            var appletContainer = document.querySelector("#player");
-            var audioPlayer = new ya.music.Audio(null, appletContainer);
-            audioPlayer.initPromise().then(function() {
-                console.log("Аудиоплеер готов к работе.");
-            }, function() {
-                console.error("Не удалось инициализировать аудиоплеер.");
-            });
-        }
+        // function createPlayer() {
+        //     var player = new ya.music.Audio();
+        //     var appletContainer = document.querySelector("#player");
+        //     var audioPlayer = new ya.music.Audio(null, appletContainer);
+        //     audioPlayer.initPromise().then(function() {
+        //         console.log("Аудиоплеер готов к работе.");
+        //     }, function() {
+        //         console.error("Не удалось инициализировать аудиоплеер.");
+        //     });
+        // }
 
         document.addEventListener("DOMContentLoaded", function(event) { 
             if (localStorage.getItem('voted')) {
                 closetab(localStorage.getItem('voted'));
             }
-            createPlayer();
+            // createPlayer();
 
         });
   
