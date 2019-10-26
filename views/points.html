@@ -185,10 +185,10 @@
     function modifyPoints(points_num) {
         let sum_points = localStorage.getItem('points_sum');
         if (sum_points) {
-            localStorage.setItem('points_sum', sum_points+points_num)
+            localStorage.setItem('points_sum', parseInt(sum_points)+parseInt(points_num))
         }
         else {
-            localStorage.setItem('points_sum', points_num)
+            localStorage.setItem('points_sum', parseInt(points_num))
         }
         document.getElementById('points').value = localStorage.getItem('points_sum');
     }
