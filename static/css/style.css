@@ -1,0 +1,264 @@
+/*
+    DEMO STYLE
+*/
+
+body {
+    background: #fafafa;
+}
+
+p {
+    font-size: 1.1em;
+    font-weight: 300;
+    line-height: 1.7em;
+    color: #999;
+}
+
+a,
+a:hover,
+a:focus {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.navbar {
+    padding: 15px 10px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    margin-bottom: 40px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-btn {
+    box-shadow: none;
+    outline: none !important;
+    border: none;
+}
+
+.line {
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #ddd;
+    margin: 40px 0;
+}
+
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+
+.wrapper {
+    display: flex;
+    width: 100%;
+}
+
+
+.sidebar-header {
+    padding: 20px;
+    background: #ED0909;
+}
+
+.sidebar-header img {
+    display: block;
+    width: 210px;
+    height: 42px;
+    margin: 0 auto;
+}
+
+nav ul.components {
+    margin: 0 20px;
+    padding: 20px 0;
+}
+
+nav ul p {
+    color: #fff;
+    padding: 10px;
+}
+
+nav ul li a {
+    padding: 10px;
+    font-size: 1.1em;
+    display: block;
+    color: #ED0909;
+}
+
+nav ul li a:hover {
+    color: #ba0707;
+    background: #fff;
+}
+
+nav ul li.active>a,
+a[aria-expanded="true"] {
+    color: #fff;
+    background: #6d7fcc;
+}
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+ul ul a {
+    font-size: 0.9em !important;
+    padding-left: 30px !important;
+    background: #6d7fcc;
+}
+
+ul.CTAs {
+    padding: 20px;
+}
+
+ul.CTAs a {
+    text-align: center;
+    font-size: 0.9em !important;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+a.download {
+    background: #fff;
+    color: #7386D5;
+}
+
+a.article,
+a.article:hover {
+    background: #6d7fcc !important;
+    color: #fff !important;
+}
+
+/* ---------------------------------------------------
+    CONTENT STYLE
+----------------------------------------------------- */
+
+#content {
+    width: calc(100% - 300px);
+    padding: 40px;
+    min-height: 100vh;
+    transition: all 0.3s;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#content.active {
+    width: 100%;
+}
+
+/* ---------------------------------------------------
+    MEDIAQUERIES
+----------------------------------------------------- */
+
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -250px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #content {
+        width: 100%;
+    }
+    #content.active {
+        width: calc(100% - 250px);
+    }
+    #sidebarCollapse span {
+        display: none;
+    }
+}
+
+.btn-danger {
+    background-color: rgb(229,0,12);
+}
+
+.btn-outline-danger {
+    border-color: rgb(229,0,12);
+}
+
+.btn-outline-danger:hover {
+    background-color: rgb(229,0,12);
+}
+
+.btn-primary {
+    background-color: #1DA1F2;
+    border-color: #1DA1F2;
+}
+
+.story {
+    max-width: 100px;
+    border-radius: 100px;
+    margin: 20px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,0.5);
+}
+
+/* ---------------------------------------------------
+    MY MUSIC
+----------------------------------------------------- */
+
+.display-4 {
+    font-weight: 1000;
+}
+.user-img {
+    width: 120px;
+    border-radius: 100px;
+
+}
+.user-name {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.nav-item {
+    background-color:transparent;
+    border-width: 0;
+}
+.nav-link {
+    border: 0 solid #BDBDBD;
+    border-width: 0 0 1px 0;
+    padding: .5rem 2rem;
+    transition: none;
+}
+.nav-link:not(.active):hover {
+    border: none;
+}
+
+.nav-link.active {
+    border-width: 0 0 3px 0 !important;
+    border-color: #ED0909 !important;
+    color: #ED0909 !important;
+    border-radius: 0 !important;
+    background-color: transparent !important;
+}
+
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+#menu .icon {
+    margin-right: 1rem;
+}
+
+
+.sidebar {
+    height: 100vw;
+    background-color: #ffffff;
+}
+#lists .card {
+    background: transparent;
+    border: none;
+}
+#lists .card-body {
+    padding: 4px 0;
+}
+#lists .card-title {
+    font-weight: 600;
+}

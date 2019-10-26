@@ -46,11 +46,3 @@ class YandexMusicParser(BaseParser):
         owner_id = self.fetch_owner_id(username)
         playlist_ids = self.fetch_playlists(username)
         return [self.build_playlist(self.fetch_playlist(owner_id, playlist)) for playlist in playlist_ids]
-
-
-if __name__ == '__main__':
-    ymp = YandexMusicParser()
-    print(ymp.fetch_data('magar.art'))
-    print(ymp.fetch_data('v.stromtsova'))
-    print(ymp.fetch_data('  '))
-    print(ymp.fetch_data('sbazhmin'))
