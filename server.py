@@ -18,7 +18,7 @@ def authrequired(func):
         s = flask.request.environ.get('beaker.session')
         if s.get('loggedin') != True:
             return redirect('/login')
-        func(*args, **kwargs)
+        return func(*args, **kwargs)
     
     return do_stuff
 
