@@ -126,7 +126,6 @@ def favicon():
 @flask.route('/user/<username>', methods=['POST', 'GET'])
 @authrequired
 def user_management(username):
-    s = flask.request.environ.get('beaker.session')
     if request.method == 'GET':
         data = {
             'loggedin': {
