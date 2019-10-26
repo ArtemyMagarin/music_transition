@@ -51,11 +51,11 @@ def yandex():
             fetch('https://login.yandex.ru/info?oauth_token='+token)
             .then(data => data.json())
             .then(data => {
-                window.localStorage('userData', JSON.stringify(data));
-                window.location.replace('{url}' + data.display_name)
+                window.localStorage.set('userData', JSON.stringify(data));
+                window.location.replace('%s' + data.display_name)
             })
         </script>
-    '''.format(url='https://hardwaymusic.herokuapp.com/user/' if not LOCAL else 'http://localhost:9999/user/')
+    ''' % ('https://hardwaymusic.herokuapp.com/user/' if not LOCAL else 'http://localhost:9999/user/')
 
 
 @flask.get('/')
