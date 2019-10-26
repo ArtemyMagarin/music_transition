@@ -114,6 +114,11 @@ def favicon():
     return static_file('favicon.ico', root="src/server/static/img")
 
 
+@bottle.get('/mp3/<filepath:re:.*\.mp3>')
+def audios(filepath):
+    return static_file(filepath, root="src/server/static/mp3")
+
+
 @bottle.route('/user/<username>', methods=['POST', 'GET'])
 @authrequired
 def user_management(username):
