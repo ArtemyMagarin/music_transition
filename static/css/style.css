@@ -262,3 +262,42 @@ a.article:hover {
 #lists .card-title {
     font-weight: 600;
 }
+
+
+/* ---------------------------------------------------
+    BATTLE
+----------------------------------------------------- */
+
+.battle-row {
+    align-items: center;
+}
+
+.battle-artist {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    background: linear-gradient(60deg, #ED0909 33%, #D6026C 66%, #F702F7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+    cursor: pointer;
+}
+.battle-artist-percent {
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(300deg, #ED0909 50%, #D6026C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #0B2349;
+}
+
+
+.battle-vs {
+    font-size: 36px;
+    font-weight: 1000;
+    color: #ED0909;
+}
+
+.battle-side {
+    transition: width 1s ease-in-out, opacity 0.4s ease-in-out;
+}

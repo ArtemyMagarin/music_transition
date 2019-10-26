@@ -97,6 +97,54 @@
             <div class="row">
                 <div class="card mb-3 p-3 w-100">
                     <div class="row no-gutters">
+                        <div id="battle-left" class="battle-side" style="width: 50%; border-right: 2px solid #de0e0e">
+                            <div class="row battle-row">
+                                <div class="col-5">
+                                    <img src="https://kudago.com/media/images/event/46/63/46637b8aabd406c0cd83df1d9e601f8c.jpg" class="card-img">
+                                </div> 
+                                <div class="offset-1">
+                                    <svg class="ml-2" width="22" height="26" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15 7.26795C16.3333 8.03775 16.3333 9.96225 15 10.7321L3 17.6603C1.66667 18.4301 -8.94676e-07 17.4678 -8.27378e-07 15.9282L-2.21695e-07 2.0718C-1.54397e-07 0.532196 1.66667 -0.430055 3 0.339746L15 7.26795Z" fill="#eb0e0e"/>
+                                            </svg>
+                                </div>
+                                <div class="offset-1">
+                                    <span class="battle-artist" onclick="closetab('r')">
+                                        Affinage
+                                    </span><br>
+                                    <span class="battle-artist-percent" onclick="closetab('r')">
+                                        23%
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="battle-right" class="battle-side" style="width: 50%">
+                            <div class="row battle-row">
+                                <div class="offset-1">
+                                    <span class="battle-artist" onclick="closetab('l')">
+                                        RSAC
+                                    </span><br>
+                                    <span class="battle-artist-percent" onclick="closetab('r')">
+                                        77%
+                                    </span>
+                                </div>
+                                <div class="offset-1">
+                                    <svg class="ml-2" width="22" height="26" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M15 7.26795C16.3333 8.03775 16.3333 9.96225 15 10.7321L3 17.6603C1.66667 18.4301 -8.94676e-07 17.4678 -8.27378e-07 15.9282L-2.21695e-07 2.0718C-1.54397e-07 0.532196 1.66667 -0.430055 3 0.339746L15 7.26795Z" fill="#eb0e0e"/>
+                                            </svg>
+                                </div>
+                                <div class="col-5 offset-2">
+                                    <img src="https://avatars.mds.yandex.net/get-afishanew/34116/5e29cf9015e2e3bc2a1f4dab65506a91/960x690_noncrop" class="card-img">
+                                </div>
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="card mb-3 p-3 w-100">
+                    <div class="row no-gutters">
                         <div class="col-2">
                             <img src="https://avatars.yandex.net/get-music-content/2399641/0642dd6f.a.9070622-1/200x200" class="card-img">
                         </div>
@@ -162,6 +210,26 @@
         </div>
     </div>
 
+
+    <script type="text/javascript">
+        function closetab(side) {
+            let side_open = 'battle-right';
+            let side_close = 'battle-left';
+            let number = '78%';
+            if (side === 'r') {
+                side_close = 'battle-right';
+                side_open = 'battle-left';
+                number = '24%';
+            }
+
+            document.getElementById(side_close).style.width = '0%';
+            document.getElementById(side_close).style.opacity = '0';
+            document.getElementById(side_open).style.width = '100%';
+            document.getElementById('battle-left').style.border = 'none';
+            document.querySelector('#' + side_open + ' .battle-artist-percent').innerHTML = number;
+
+        }
+    </script>
 
 </body>
 </html>
