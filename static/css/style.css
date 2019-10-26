@@ -62,7 +62,8 @@ a:focus {
     display: block;
     width: 210px;
     height: 42px;
-    margin: 0 auto;
+    margin-left: 10px;
+    margin-right: auto;
 }
 
 nav ul.components {

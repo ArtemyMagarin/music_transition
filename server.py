@@ -1,17 +1,27 @@
 import json 
 from bottle import Bottle, run, template, static_file, response
 from yandex import YandexMusicParser
+import bottle as flask
+from bottle.ext import beaker
 
-app = Bottle(__name__)
+session_opts = {
+    'session.type': 'file',
+    'session.cookie_expires': 300,
+    'session.data_dir': './data',
+    'session.auto': True
+}
 
-@app.hook('after_request')
+app = beaker.middleware.SessionMiddleware(flask.app(), session_opts)
+
+
+@flask.hook('after_request')
 def enable_cors():
     response.headers['Access-Control-Allow-Origin'] = '*'
     response.headers['Access-Control-Allow-Methods'] = 'GET, POST, PUT, OPTIONS'
     response.headers['Access-Control-Allow-Headers'] = 'Origin, Accept, Content-Type, X-Requested-With, X-CSRF-Token'
 
 
-@app.get('/yandex/<login>')
+@flask.get('/yandex/<login>')
 def yandex(login):
     yms = YandexMusicParser()
     data = yms.fetch_data(login)
@@ -19,49 +29,56 @@ def yandex(login):
     return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
 
-@app.get('/yandexauth')
+@flask.get('/yandexauth')
 def yandex():
     return '''
         <script>
             var token = /access_token=([^&]+)/.exec(document.location.hash)[1];
             fetch('https://login.yandex.ru/info?oauth_token='+token).then(data => data.json()).then(data => window.location.replace('https://hardwaymusic.herokuapp.com/yandex/'+data.display_name))
         </script>
-
     '''
 
 
-@app.get('/')
+@flask.get('/')
+@flask.get('/index')
 def index():
     return template('index.html')
 
-@app.get('/memories')
+@flask.get('/memories')
 def memories():
     return template('memories.html')
 
 
-@app.get('/points')
+@flask.get('/points')
 def points():
     return template('points.html')
 
 
-@app.get('/userpage')
+@flask.get('/userpage')
 def userpage():
     return template('userpage.html')
 
 
-@app.get('/events')
-def userpage():
+@flask.get('/events')
+def events():
     return template('events.html')
 
 
-@app.get('/css/<filepath:re:.*\.css>')
+# static files
+@flask.get('/css/<filepath:re:.*\.css>')
 def styles(filepath):
     return static_file(filepath, root="static/css")
 
 
-@app.get('/img/<filepath:path>')
+@flask.get('/img/<filepath:path>')
 def styles(filepath):
     return static_file(filepath, root="static/img")
+
+
+@flask.route('/user', methods=['POST', 'GET'])
+def user_management():
+    if request.method == 'GET':
+        return template('')
 
 
 
