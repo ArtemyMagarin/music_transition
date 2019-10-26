@@ -8,7 +8,7 @@ app = Bottle(__name__)
 def yandex(login):
     yms = YandexMusicParser()
     data = yms.fetch_data(login)
-    return json.dumps(data)
+    return json.dumps(data, sort_keys=True, indent=4, separators=(',', ': '))
 
 
 if __name__ == '__main__':
