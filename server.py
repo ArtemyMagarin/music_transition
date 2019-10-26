@@ -44,6 +44,7 @@ def yandex(login):
 def datahandler():
     data = request.json
     s['user'] = data
+    s.save()
     return 'ok'
 
 
@@ -112,12 +113,12 @@ def scripts(filepath):
 
 
 @flask.get('/img/<filepath:path>')
-def styles(filepath):
+def images(filepath):
     return static_file(filepath, root="static/img")
 
 
 @flask.get('/favicon.ico')
-def styles():
+def favicon():
     return static_file('favicon.ico', root="static/img")
 
 
