@@ -1,6 +1,6 @@
 import json 
 from bottle import Bottle, run, template, static_file, response, request, redirect
-from yandex import YandexMusicParser
+from src.scraputils.yandex import YandexMusicParser
 import bottle as flask
 from bottle.ext import beaker
 

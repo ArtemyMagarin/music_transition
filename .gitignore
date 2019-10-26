@@ -133,3 +133,5 @@ dmypy.json
 
 # Sessions
 data/*
+.data/*
+

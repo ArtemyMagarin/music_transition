@@ -1,5 +1,5 @@
 import re
-from baseparser import BaseParser
+from src.scraputils.baseparser import BaseParser
 
 
 class YandexMusicParser(BaseParser):
