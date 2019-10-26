@@ -148,14 +148,14 @@
     </div>
 <script type="text/javascript">
     function modifyPoints(points_num) {
-        let sum_points = localStorage.getItem('points_sum')
+        let sum_points = localStorage.getItem('points_sum');
         if (sum_points) {
-            sum_points += points_num
+            localStorage.setItem('points_sum', sum_points+points_num)
         }
         else {
-            sum_points = points_num
+            localStorage.setItem('points_sum', points_num)
         }
-        document.getElementById('points').value = sum_points
+        document.getElementById('points').value = localStorage.getItem('points_sum');
     }
 
 </script>
