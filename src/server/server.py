@@ -65,18 +65,18 @@ def yandex():
 @bottle.get('/index')
 @authrequired
 def index():
-    return template('index.html')
+    return template('index.tpl')
 
 @bottle.get('/memories')
 @authrequired
 def memories():
-    return template('memories.html')
+    return template('memories.tpl')
 
 
 @bottle.get('/points')
 @authrequired
 def points():
-    return template('points.html')
+    return template('points.tpl')
 
 
 @bottle.get('/userpage')
@@ -93,11 +93,11 @@ def userpage():
 @bottle.get('/events')
 @authrequired
 def events():
-    return template('events.html')
+    return template('events.tpl')
 
 @bottle.get('/login')
 def login():
-    return template('login.html', root='src/server/views')
+    return template('login.tpl', root='src/server/views')
 
 # static files
 @bottle.get('/css/<filepath:re:.*\.css>')
