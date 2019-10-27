@@ -12,6 +12,8 @@ function renderUserPlaylists() {
                 let title = playlist.title;
                 let count = playlist.tracks.length;
                 let el = buildPlaylistCard(cover, title, count);
+                let tmp = document.getElementById('card-playlist-import');
+                tmp.parentNode.remove(tmp);
                 document.querySelector('.playlists-wrapper').appendChild(el);
             })
         })
@@ -36,5 +38,5 @@ function buildPlaylistCard(cover, title, count) {
 }
 
 
-renderUserPlaylists()
+document.getElementById('card-playlist-import').addEventListener('click', renderUserPlaylists);
 
