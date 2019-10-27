@@ -361,3 +361,10 @@ a.article:hover {
     width: 100%;
     border-radius: 20px;
 }
+
+
+
+/* stuff */
+.playlists-wrapper .card {
+    cursor: pointer;
+}
