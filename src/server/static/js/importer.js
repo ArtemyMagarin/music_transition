@@ -13,7 +13,7 @@ function renderUserPlaylists() {
                 let count = playlist.tracks.length;
                 let el = buildPlaylistCard(cover, title, count);
                 let tmp = document.getElementById('card-playlist-import');
-                tmp.parentNode.remove(tmp);
+                tmp.parentNode.removeChild(tmp);
                 document.querySelector('.playlists-wrapper').appendChild(el);
             })
         })
