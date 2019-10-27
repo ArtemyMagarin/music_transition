@@ -60,7 +60,7 @@
                       <div class="tab-pane fade" id="artist" role="tabpanel" aria-labelledby="artist-tab">There are no artists here yet</div>
                       <div class="tab-pane fade show active" id="lists" role="tabpanel" aria-labelledby="lists-tab">
                         <div class="row playlists-wrapper">
-                            <div id='card-playlist-import' class="card" >
+                            <div id='card-playlist-import' class="card ml-3" >
                               <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect x="1" y="1" width="198" height="198" rx="3" fill="white" stroke="#EFEFEF" stroke-width="2"/>
                                 <rect x="36" y="43" width="128" height="128" fill="url(#pattern1)" fill-opacity="0.85"/>
