@@ -7,7 +7,7 @@
                 <nav>
                     <ul class="nav flex-column list-unstyled components" id='menu'>
                         <li class="nav-item">
-                            <a href="/userpage"><img src="/img/ava.png" class="icon" style="border-radius: 100px;"/>My music</a>
+                            <a href="/userpage"><img src="/img/ava.png" class="icon personal-image" style="border-radius: 100px;"/>My music</a>
                         </li>
                         <li class="nav-item">
                             <a href="/points"><img src="/img/coin.png" class="icon"/>My points</a>
