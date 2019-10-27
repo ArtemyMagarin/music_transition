@@ -8,7 +8,7 @@ function renderUserPlaylists() {
         .then(data => data.json())
         .then(playlists => {
             playlists.forEach(playlist => {
-                let cover = 'https://' + (playlist.cover || '').replace('%%', 'm1000x1000');
+                let cover = 'https://' + (playlist.cover || 'avatars.yandex.net/get-music-user-playlist/51766/playlist-match-default/%%').replace('%%', 'm400x400');
                 let title = playlist.title;
                 let count = playlist.tracks.length;
                 let el = buildPlaylistCard(cover, title, count);
@@ -25,7 +25,7 @@ function createElementFromHTML(htmlString) {
 
 function buildPlaylistCard(cover, title, count) {
     return createElementFromHTML(`
-    <div class="card mx-3">
+    <div class="card ml-3">
         <img src="${cover}" style="height: 200px; width: 200px"/>
         <div class="card-body">
             <span class="card-title">${title}</span>
