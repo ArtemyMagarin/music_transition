@@ -7,13 +7,14 @@ function renderUserPlaylists() {
     fetch('https://hardwaymusic.herokuapp.com/yandex/'+login)
         .then(data => data.json())
         .then(playlists => {
+            let tmp = document.getElementById('card-playlist-import');
+                tmp.parentNode.removeChild(tmp);
+                
             playlists.forEach(playlist => {
                 let cover = 'https://' + (playlist.cover || 'avatars.yandex.net/get-music-user-playlist/51766/playlist-match-default/%%').replace('%%', 'm400x400');
                 let title = playlist.title;
                 let count = playlist.tracks.length;
                 let el = buildPlaylistCard(cover, title, count);
-                let tmp = document.getElementById('card-playlist-import');
-                tmp.parentNode.removeChild(tmp);
                 document.querySelector('.playlists-wrapper').appendChild(el);
             })
         })
