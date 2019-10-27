@@ -9,7 +9,7 @@ function renderUserPlaylists() {
         .then(playlists => {
             let tmp = document.getElementById('card-playlist-import');
                 tmp.parentNode.removeChild(tmp);
-                
+
             playlists.forEach(playlist => {
                 let cover = 'https://' + (playlist.cover || 'avatars.yandex.net/get-music-user-playlist/51766/playlist-match-default/%%').replace('%%', 'm400x400');
                 let title = playlist.title;
@@ -33,7 +33,7 @@ function buildPlaylistCard(cover, title, count) {
         <div class="card-body">
             <span class="card-title">${title}</span>
             <br>
-            <span class="card-text">${count} items</span>
+            <span class="card-text">${count} item${count>1?'s':''}</span>
       </div>
     </div>`)
 }
