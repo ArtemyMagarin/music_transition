@@ -13,7 +13,7 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col-3 pl-0 pr-0 sidebar" style="min-width: 150px;">
+            <div class="col-3 pl-0 pr-0 sidebar" style="min-width: 150px; position: fixed;">
                 <div class="sidebar-header">
                     <a href="/">
                         <img src="https://s3-alpha-sig.figma.com/img/f7e8/875d/10abff05672269e7bafd1d7c4f816217?Expires=1572825600&Signature=BeEjew~lM-CRKK03m~yIF1za6jfpjfvX3eCQWmfMoOc-0CqptC-TjMV~hbcsXBXQ2d3n7kbuta8k17GoIWPgRk4CjFdflMfGRnBe2bPDLqMViJeXvetAjEflkCmIBKkqBb5xbfgYFiIY4H3Ta8k9K2QupGdP82PdXZQFxah4xymBMkT9fvnFZ~5BHtJQirSuQZUoToIK4KfhVkIDGvi3Vw18CmFnwDgJlyLrFY5336Gsc4yL3SzwS1snaejKJ68EAUpMd5Eqz3vXQnFUH9REdwDvtImoSeIs9~PIVLghICFfSega0oKF~8~5PmDza8b5iEpUFPb3lMndyPB22i0wWA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" alt="">
@@ -58,9 +58,14 @@
                             <path d="M1.5 14.1274C0.833332 13.7425 0.833335 12.7802 1.5 12.3953L17.9148 2.91825C18.5814 2.53335 19.4148 3.01448 19.4148 3.78428L19.4148 22.7384C19.4148 23.5082 18.5814 23.9893 17.9148 23.6044L1.5 14.1274Z" fill="#747474"/>
                         </svg>
                         <button class="btn controls_play">
-                            <svg width="49" height="57" viewBox="0 0 49 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class='controls_play-play' width="49" height="57" viewBox="0 0 49 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M47.9092 26.7679C49.2425 27.5377 49.2425 29.4622 47.9092 30.232L3.65918 55.7798C2.32585 56.5496 0.659185 55.5873 0.659185 54.0477L0.659187 2.95225C0.659187 1.41265 2.32586 0.450396 3.65919 1.2202L47.9092 26.7679Z" fill="#989898"/>
                             </svg>
+                            <svg class='controls_play-stop' width="40" height="56" viewBox="0 0 40 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="14" height="56" rx="7" fill="#989898"/>
+                                <rect x="26" width="14" height="56" rx="7" fill="#989898"/>
+                            </svg>
+
                         </button>
                         <svg width="46" height="27" viewBox="0 0 46 27" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M24.6133 12.3953C25.28 12.7802 25.2799 13.7425 24.6133 14.1274L8.19851 23.6045C7.53184 23.9894 6.69851 23.5082 6.69851 22.7384L6.69851 3.78428C6.69851 3.01448 7.53184 2.53336 8.19851 2.91826L24.6133 12.3953Z" fill="#747474"/>
@@ -83,7 +88,7 @@
 
 
             </div>
-            <div class="col ml-3 mr-3">
+            <div class="col-9 offset-3" style="padding: 0 30px;">
                 <div class="row mt-2">
                     <div class="card mb-3 w-100">
                         <div class="row no-gutters">
