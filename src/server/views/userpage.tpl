@@ -59,7 +59,7 @@
                       <div class="tab-pane fade" id="album" role="tabpanel" aria-labelledby="album-tab">There are no albums here yet</div>
                       <div class="tab-pane fade" id="artist" role="tabpanel" aria-labelledby="artist-tab">There are no artists here yet</div>
                       <div class="tab-pane fade show active" id="lists" role="tabpanel" aria-labelledby="lists-tab">
-                        <div class="row">
+                        <div class="row playlists-wrapper">
                             <div id='card-playlist-likes' class="card mr-3 ml-3" >
                               <svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <rect width="200" height="200" rx="4" fill="#F43232"/>
@@ -108,5 +108,6 @@
     <script src="/js/player.js"></script>
 
     <script src="/js/user.js"></script>
+    <script src="/js/importer.js"></script>
 </body>
 </html>
