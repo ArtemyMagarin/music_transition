@@ -95,7 +95,8 @@
                                         <h1 class="card-title"><strong>T-Shirt from Lisa</strong></h1>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-danger btn-block btn-md" onclick="modifyPoints(-200)">Buy for 200 points</button>
+                                        <button type="button" class="btn btn-danger btn-block btn-md point-btn"
+                                                onclick="modifyPoints(-200)">Buy for <span class="point_value">200</span> points</button>
                                     </div>
                                 </div>
                                 <div class="row mb-0">
@@ -127,7 +128,8 @@
                                         <h1 class="card-title"><strong>10% discount</strong></h1>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-danger btn-block btn-md" onclick="modifyPoints(-300)">Buy for 300 points</button>
+                                        <button type="button" class="btn btn-danger btn-block btn-md point-btn"
+                                                onclick="modifyPoints(-300)">Buy for <span class="point_value">300</span> points</button>
                                     </div>
                                 </div>
                                 <div class="row mb-0">
@@ -158,7 +160,7 @@
                                         <h1 class="card-title"><strong>Sing Bad Romance in Karaoke</strong></h1>
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="button" class="btn btn-outline-danger btn-block btn-md" onclick="modifyPoints(100)">Get 100 points</button>
+                                        <button type="button" class="btn btn-danger btn-block btn-md" onclick="modifyPoints(100)">Get 100 points</button>
                                     </div>
                                 </div>
                                 <div class="row mb-0">
@@ -176,8 +178,8 @@
         </div>
     </div>
 <script type="text/javascript">
-    function setPoints() {
-        let points = localStorage.getItem('points_sum');
+    function setPoints(points) {
+
         if (points) {
             document.querySelector('#points').innerHTML = points;
         }
@@ -187,12 +189,35 @@
     }
     function modifyPoints(points_num) {
         let current_points = document.querySelector('#points').innerHTML;
-        localStorage.setItem('points_sum', parseInt(current_points)+parseInt(points_num));
-        setPoints();
+        let new_points = parseInt(current_points)+parseInt(points_num)
+        if (new_points >= 0) {
+            localStorage.setItem('points_sum', new_points);
+            setPoints(new_points);
+            setButtonStyles(new_points);
+        }
+        else {
+            alert("Not enough points :(")
+        }
+    }
+    function setButtonStyles(current_points) {
+        let btns = document.querySelectorAll('.point-btn');
+        for (i=0; i<btns.length; i++) {
+            let points_value = parseInt(btns[i].querySelector('.point_value').innerHTML);
+            if (points_value > current_points) {
+                btns[i].classList.add('disabled');
+            }
+            else {
+                btns[i].classList.remove('disabled');
+            }
+        }
+
     }
 
     document.addEventListener("DOMContentLoaded", function(event) {
-        setPoints()
+        let points = localStorage.getItem('points_sum');
+        setButtonStyles(points);
+        setPoints(points);
+
     });
 
 </script>
