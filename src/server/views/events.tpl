@@ -73,18 +73,18 @@
                             <div class="card mb-3 w-100">
                                 <div class="row no-gutters">
                                     <div class="col-3">
-                                        <img src="https://s3-alpha-sig.figma.com/img/ddfc/296a/b4935703c191f8d0526e1127ef4aec51?Expires=1572825600&Signature=Ythe-REHOBZNph2TAwBXXw1O6r0JViW1vn2QuocO7fC73ReLOWbLLYQag~dIc5ExGZTtR-pqFD11ZMGB-NLuYGjU7r5Puzx433xzW68XQ4FzbaHThp9767RmeVdXK-cGFJqG5zPIDHxbfpvilp1hiug5n-PnSXBYVroW8kH6d7t3p-KOLSl2x6dy0xpNl5qpCDFgKtbU2QqgG-WYjDJ4~KnsPm~fRQXtsACjgaNVNcK3VXzAuz31xHaR~3UmKW~dOJAvbkpF24jebq~YSGmoH6m6afCsS76fvl-uHwtyNsRgb10wLkz8uM4dxDHu6GEI5GeT1SJj3r0c6nETm6GV-A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA" class="card-img img-fluid" alt="...">
+                                        <img src="https://cdn.kassir.ru/spb/poster/c8/c85b63d9c99774bed7a3310e10be5e03.jpg" class="card-img img-fluid" alt="...">
                                     </div>
                                     <div class="col-9">
                                         <div class="card-body">
                                             <div class="row">
                                                 <div class="col">
-                                                    <p class="card-text" style="font-size: 20px">6th of February | Yubileyny Sports Palace</p>
+                                                    <p class="card-text" style="font-size: 20px">6th of November | Kosmonavt</p>
                                                 </div>
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-8">
-                                                    <h1 class="card-title"><strong>Bring Me the Horizon</strong></h1>
+                                                    <h1 class="card-title"><strong>Chrysta Bell</strong></h1>
                                                 </div>
 
                                             </div>
