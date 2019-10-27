@@ -8,7 +8,7 @@ function renderUserPlaylists() {
         .then(data => data.json())
         .then(playlists => {
             playlists.forEach(playlist => {
-                let cover = 'https://' + playlist.cover.replace('%%', 'm1000x1000');
+                let cover = 'https://' + (playlist.cover || '').replace('%%', 'm1000x1000');
                 let title = playlist.title;
                 let count = playlist.tracks.length;
                 let el = buildPlaylistCard(cover, title, count);

@@ -37,7 +37,7 @@ class YandexMusicParser(BaseParser):
 
     def build_playlist(self, raw):
         """This method is unsafe, need some validation method"""
-        cover = raw.get('ogImage')  # may be illegal
+        cover = raw.get('ogImage', raw.get('cover', {}).get('uri'))  # may be illegal
         title = raw.get('title')
         tracks = list(map(self.process_track, raw.get('tracks', [])))
         return {'cover': cover, 'title': title, 'tracks': tracks}
