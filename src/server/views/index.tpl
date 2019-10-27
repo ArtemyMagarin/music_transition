@@ -17,7 +17,7 @@
     <div class="container-fluid">
         <div class="row">
             % include('sidebar.tpl')
-            <div class="col-9 offset-3" style="padding: 0 30px;">
+            <div class="col-9" style="padding: 0 30px;">
                 <div class="row mt-2">
                     <div class="card mb-3 w-100">
                         <div class="row no-gutters">
