@@ -25,12 +25,12 @@ function createElementFromHTML(htmlString) {
 
 function buildPlaylistCard(cover, title, count) {
     return createElementFromHTML(`
-    <div class="card">
+    <div class="card mx-3">
         <img src="${cover}" style="height: 200px; width: 200px"/>
         <div class="card-body">
             <span class="card-title">${title}</span>
             <br>
-            <span class="card-text">${count}</span>
+            <span class="card-text">${count} items</span>
       </div>
     </div>`)
 }
